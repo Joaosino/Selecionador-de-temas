@@ -1,0 +1,66 @@
+/*os seletores #corpo, .container . bola .interruptor indicam as funções do botão deslizante
+ao clicar no botão deslizante a bola irá deslizar sobre o interruptor e com a ajuda do Javascript irá trocar as cores utilizadas no site e essas mesmas cores são definidas dentro do arquivo script.js*/
+*{
+  margin: 0;
+  padding: 0;
+}
+/*o check envia para o script.js a função selecionaTema() que muda a cor do site*/
+.check{
+  display: none;
+}
+/*o corpo é a tag body que envolve todo o site, ele está centralizado dentro da viewport com a altura e largura definida em 100%*/
+#corpo {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+/* o container não é necessário para a utilização em outros sites, só o criei para que fique bem visivel a função de troca de cor.*/
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid green;
+  transition: 0.4s;
+}
+/*o interruptor é literalmente a barra aonde a bola desliza*/
+.interruptor {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: 100px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.4s;
+  content: '';
+}
+/*a bola desliza sobre o interruptor e ao fazer isso ela ira mudar a imagem de fundo para indicar o tema claro ou escuro*/
+.bola {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  height: 45px;
+  width: 45px;
+  top: 3px;
+  bottom: 5px;
+  left: 5px;
+  right: 3px;
+  border-radius: 50%;
+  transition: 0.4s;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(assets/moon.svg);
+}
+
+/*verifica se o checkbox foi clicado e faz a bola deslizar sobre o interruptor e muda a imagem de fundo da bola*/
+input:checked + .interruptor .bola {
+  transform:translate(45px);
+  background-image: url(assets/sun.svg);
+}
+
